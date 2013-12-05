@@ -15,7 +15,14 @@ return array(
 	|
 	*/
 
-	'driver' => 'file',
+	/*
+	|
+	| See http://blog.neoxia.com/laravel-4-on-google-appengine-for-php/
+	|
+	| Cache stored in memcached rather than in flat files
+	*/
+
+	'driver' => 'memcached',
 
 	/*
 	|--------------------------------------------------------------------------

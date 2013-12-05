@@ -1,3 +1,43 @@
+## Laravel 4 PHP Framework For Google App Engine PHP Runtime
+
+This project is a clone of Laravel 4 with the necessary modifications to enable immediate deployment to GAE using the PHP runtime.  Credit goes to Gilles Mergoil and his blog post: http://blog.neoxia.com/laravel-4-on-google-appengine-for-php/ for the heart of the changes needed.  This project is an implementation of the changes documented by Gilles (with correct.
+
+Note that the project differs from Gilles method in that since he wrote that post, a number of PHP extensions have since been made available on Google App Engine, and hence a few of the workarounds are no longer needed.
+
+This project modifies the standard Laravel project in the following ways:
+
+- app.yaml created (note that this must be updated with your newly created GAE app name - see below)
+
+- bootstrap/start.php updated with an implementation of gethostname()
+
+- php.ini file added enabling calls to php_sapi_name, and php_uname functions
+
+- app/start/global.php updated so error logs are sent to syslog handler (since direct file system writes in GAE are not permitted)
+
+- app/config/session.php updated such that session details are written to memcached rather than stored in flat files
+
+- app/config/cache.php updated such that values are cached in memcached rather than stored in flat files
+
+- bootstrap/compiled.php regenerated
+
+Again, thanks and credit to Gilles for doing the hard work.
+NW
+
+
+## Using This Repo
+
+* Get whitelisted for PHP development with Google App Engine - see https://gaeforphp.appspot.com/register) & install the GAE PHP runtime development bundle - see https://developers.google.com/appengine/docs/php/gettingstarted/installing
+
+* Create a GAE app and note the app name - see https://appengine.google.com/start/createapp?
+
+* Clone this repo & update 
+
+* You should be ready to push changes up to google 
+
+NW
+
+The standard Laravel readme.md follows
+
 ## Laravel PHP Framework
 
 [![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.png)](https://packagist.org/packages/laravel/framework) [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework)

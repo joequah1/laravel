@@ -1,5 +1,20 @@
 <?php
 
+
+/*
+| See http://blog.neoxia.com/laravel-4-on-google-appengine-for-php/
+|
+| Add the gethostname function declaration if it doesn't exist (as will be 
+| the case in the Google App Engine environment).
+*/
+
+if (!function_exists('gethostname')) {
+    function gethostname() {
+        return php_uname('n');
+    }
+}
+
+
 /*
 |--------------------------------------------------------------------------
 | Create The Application

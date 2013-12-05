@@ -31,10 +31,20 @@ ClassLoader::addDirectories(array(
 |
 */
 
-$logFile = 'log-'.php_sapi_name().'.txt';
+/*
+| See http://blog.neoxia.com/laravel-4-on-google-appengine-for-php/
+|
+| Since file system writes are not straightforward, the default logging 
+| implementation is commented out and replaced with calls to the syslog 
+| handler
+|
+| $logFile = 'log-'.php_sapi_name().'.txt';
+|
+| Log::useDailyFiles(storage_path().'/logs/'.$logFile);
+*/
 
-Log::useDailyFiles(storage_path().'/logs/'.$logFile);
-
+$monolog = Log::getMonolog();
+$monolog->pushHandler(new Monolog\Handler\SyslogHandler('intranet', 'user', Monolog\Logger::DEBUG, false, LOG_PID));
 /*
 |--------------------------------------------------------------------------
 | Application Error Handler
