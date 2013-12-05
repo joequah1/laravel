@@ -65,7 +65,7 @@ return array(
 	|
 	*/
 
-	'key' => 'rtTbONhutTi6ApkxJLybMASKSr5YxTfA',
+	'key' => 'YourSecretKey!!!',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -127,9 +127,8 @@ return array(
 	|
 	*/
 
-	//'manifest' => storage_path().'/meta',
-    'manifest' => 'gs://laraveldemo'.'/meta',
-    
+	'manifest' => storage_path().'/meta',
+
 	/*
 	|--------------------------------------------------------------------------
 	| Class Aliases
